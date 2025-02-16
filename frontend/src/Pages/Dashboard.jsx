@@ -77,7 +77,7 @@ const Dashboard = () => {
     setUpdating(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/quizzes/${editQuiz.id}`,
+        `${import.meta.env.VITE_API_URL}/api/quizzes/${editQuiz.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -98,6 +98,31 @@ const Dashboard = () => {
       setUpdating(false);
     }
   };
+  
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this quiz?")) return;
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/Deletequizes/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to delete quiz");
+      }
+
+      toast.success("Quiz deleted successfully!");
+      fetchQuizzes(); 
+    } catch (err) {
+      toast.error(err.message || "Failed to delete quiz.");
+    }
+  };
+
 
   return (
     <Box className="container mx-auto py-10">
