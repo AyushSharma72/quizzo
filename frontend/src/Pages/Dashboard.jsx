@@ -50,7 +50,7 @@ const Dashboard = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5001/api/quizes?page=${page}&limit=5`
+        `${import.meta.env.VITE_API_URL}/api/quizes?page=${page}&limit=5`
       );
       const data = await response.json();
       if (!response.ok) throw new Error("Failed to fetch quizzes");
