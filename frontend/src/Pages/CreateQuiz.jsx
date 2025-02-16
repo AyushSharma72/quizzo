@@ -25,15 +25,18 @@ const CreateQuiz = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5001/api/quizes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title,
-          description,
-          user_id: user.id,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/quizes`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            title,
+            description,
+            user_id: user.id,
+          }),
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to create quiz");
       toast.success("Quiz created successfully!");

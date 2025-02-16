@@ -77,7 +77,7 @@ const Dashboard = () => {
     setUpdating(true);
     try {
       const response = await fetch(
-        `http://localhost:5001/api/quizzes/${editQuiz.id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/quizzes/${editQuiz.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
