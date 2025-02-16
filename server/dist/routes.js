@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { Router } from "express";
 import asyncHandler from "express-async-handler";
-import pool from "./db";
+import pool from "./db.js";
 const router = Router();
 // Create a quiz
 router.post("/api/quizes", asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {

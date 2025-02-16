@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import router from "./routes";
-import { testDBConnection } from "./db";
+import router from "./routes.js";
+import { testDBConnection } from "./db.js";
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
