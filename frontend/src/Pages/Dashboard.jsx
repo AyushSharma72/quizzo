@@ -159,7 +159,7 @@ const Dashboard = () => {
         </Typography>
       )}
 
-      <Box className="flex flex-col items-center gap-5">
+      <Box className="flex flex-col items-center gap-5 overflow-auto h-[450px]">
         {username &&
           quizzes.map((quiz) => (
             <Card
