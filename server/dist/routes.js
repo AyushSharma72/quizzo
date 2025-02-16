@@ -7,9 +7,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { Router } from "express";
-import asyncHandler from "express-async-handler";
-import pool from "./db.js";
+const { Router } = require("express");
+const asyncHandler = require("express-async-handler");
+const pool = require("./db.js");
 const router = Router();
 // Create a quiz
 router.post("/api/quizes", asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -81,4 +81,7 @@ router.post("/api/login", asyncHandler((req, res) => __awaiter(void 0, void 0, v
         user: { id: result.rows[0].id, username: result.rows[0].username },
     });
 })));
-export default router;
+
+
+module.exports = router;
+

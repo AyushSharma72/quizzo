@@ -7,11 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import router from "./routes.js";
-import { testDBConnection } from "./db.js";
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const router = require("./routes.js");
+const { testDBConnection } = require("./db.js");
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
